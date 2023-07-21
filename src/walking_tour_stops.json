@@ -1,0 +1,142 @@
+[
+    {
+        "name": "Grand Rapids Police Department",
+        "location": {
+            "latitude": 42.9617,
+            "longitude": -85.6559
+        }
+    },
+    {
+        "name": "Frederik Meijer Gardens & Sculpture Park",
+        "location": {
+            "latitude": 42.9578,
+            "longitude": -85.5876
+        }
+    },
+    {
+        "name": "Gerald R. Ford Presidential Museum",
+        "location": {
+            "latitude": 42.9686,
+            "longitude": -85.6770
+        }
+    },
+    {
+        "name": "John Ball Zoo",
+        "location": {
+            "latitude": 42.9679,
+            "longitude": -85.6848
+        }
+    },
+    {
+        "name": "Downtown Market Grand Rapids",
+        "location": {
+            "latitude": 42.9573,
+            "longitude": -85.6725
+        }
+    },
+    {
+        "name": "Grand Rapids Art Museum",
+        "location": {
+            "latitude": 42.9653,
+            "longitude": -85.6714
+        }
+    },
+    {
+        "name": "Fulton Street Farmers Market",
+        "location": {
+            "latitude": 42.9660,
+            "longitude": -85.6582
+        }
+    },
+    {
+        "name": "Meyer May House",
+        "location": {
+            "latitude": 42.9655,
+            "longitude": -85.6633
+        }
+    },
+    {
+        "name": "Blandford Nature Center",
+        "location": {
+            "latitude": 42.9833,
+            "longitude": -85.7061
+        }
+    },
+    {
+        "name": "Van Andel Arena",
+        "location": {
+            "latitude": 42.9630,
+            "longitude": -85.6712
+        }
+    },
+    {
+        "name": "Grand Rapids Public Museum",
+        "location": {
+            "latitude": 42.9685,
+            "longitude": -85.6763
+        }
+    },
+    {
+        "name": "Grand Rapids Children's Museum",
+        "location": {
+            "latitude": 42.9662,
+            "longitude": -85.6711
+        }
+    },
+    {
+        "name": "Fish Ladder Park",
+        "location": {
+            "latitude": 42.9677,
+            "longitude": -85.6661
+        }
+    },
+    {
+        "name": "Rosa Parks Circle",
+        "location": {
+            "latitude": 42.9636,
+            "longitude": -85.6710
+        }
+    },
+    {
+        "name": "Sculpture Park",
+        "location": {
+            "latitude": 42.9803,
+            "longitude": -85.6691
+        }
+    },
+    {
+        "name": "Heritage Hill Historic District",
+        "location": {
+            "latitude": 42.9603,
+            "longitude": -85.6569
+        }
+    },
+    {
+        "name": "Meyer May House",
+        "location": {
+            "latitude": 42.9655,
+            "longitude": -85.6633
+        }
+    },
+    {
+        "name": "Belknap Lookout",
+        "location": {
+            "latitude": 42.9814,
+            "longitude": -85.6559
+        }
+    },
+    {
+        "name": "Ah-Nab-Awen Park",
+        "location": {
+            "latitude": 42.9639,
+            "longitude": -85.6697
+        }
+    },
+    {
+        "name": "Grand Rapids African American Museum and Archives",
+        "location": {
+            "latitude": 42.9571,
+            "longitude": -85.6651
+        }
+    }
+]
