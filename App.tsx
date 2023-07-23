@@ -5,32 +5,30 @@
  * @format
  */
 
-import React from 'react';
-import type {PropsWithChildren} from 'react';
+import React, { createContext, useState } from 'react';
+import type { PropsWithChildren } from 'react';
 import {
   SafeAreaView,
-  ScrollView,
-  StatusBar,
   StyleSheet,
   Text,
   useColorScheme,
   View,
 } from 'react-native';
-import MapView, { UrlTile } from 'react-native-maps';
 
 import {
   Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+
+import MainScreen from './src/Screens/MainScreen';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import MapScreen from './src/Screens/MapScreen';
 
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
 
-function Section({children, title}: SectionProps): JSX.Element {
+function Section({ children, title }: SectionProps): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
   return (
     <View style={styles.sectionContainer}>
@@ -56,72 +54,27 @@ function Section({children, title}: SectionProps): JSX.Element {
   );
 }
 
+const Stack = createNativeStackNavigator<RootStackParamList>();
+
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
-
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next and suffer:
-          </Section>
-          <MapView
-            style={styles.mapStyle}            
-            initialRegion={{
-              latitude: 37.78825,
-              longitude: -122.4324,
-              latitudeDelta: 0.0922,
-              longitudeDelta: 0.0421,
-            }}>
-              <UrlTile
-                /**
-                 * The url template of the tile server. The patterns {x} {y} {z} will be replaced at runtime
-                 * For example, http://c.tile.openstreetmap.org/{z}/{x}/{y}.png
-                 */
-                urlTemplate="http://c.tile.openstreetmap.org/{z}/{x}/{y}.png"
-
-                /**
-                * The maximum zoom level for this tile overlay. Corresponds to the maximumZ setting in
-                * MKTileOverlay. iOS only.
-                */
-                maximumZ={19}
-
-                /**
-                * flipY allows tiles with inverted y coordinates (origin at bottom left of map)
-                * to be used. Its default value is false.
-                */
-                flipY={false}
-              />
-            </MapView>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="Main"
+            component={MainScreen}
+          />
+          <Stack.Screen
+            name="Map"
+            component={MapScreen}
+          />
+        </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
@@ -142,9 +95,7 @@ const styles = StyleSheet.create({
   highlight: {
     fontWeight: '700',
   },
-  mapStyle: {
-    minHeight: 500
-  }
+
 });
 
 export default App;
