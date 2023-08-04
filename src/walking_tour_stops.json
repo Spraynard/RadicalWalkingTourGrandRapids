@@ -2,172 +2,210 @@
     {
         "id": "b3d9f875-50ea-4a58-9b72-e3c2a7767816",
         "name": "Grand Rapids Police Department",
+        "description": "The local police department in Grand Rapids.",
         "location": {
             "latitude": 42.9617,
             "longitude": -85.6559
         },
-        "content_file": "police_department.txt"
+        "content_file": "police_department.txt",
+        "image": "police_department.jpg"
     },
     {
         "id": "6df4b21c-1740-4ff4-bde0-2925b7e1ad13",
         "name": "Frederik Meijer Gardens & Sculpture Park",
+        "description": "A beautiful garden and sculpture park in Grand Rapids.",
         "location": {
             "latitude": 42.9578,
             "longitude": -85.5876
         },
-        "content_file": "meijer_gardens.txt"
+        "content_file": "meijer_gardens.txt",
+        "image": "meijer_gardens.jpg"
     },
     {
         "id": "5b30f502-07f2-4e90-9b2e-5018e3ee4ee2",
         "name": "Gerald R. Ford Presidential Museum",
+        "description": "A museum dedicated to the life and presidency of Gerald R. Ford.",
         "location": {
             "latitude": 42.9686,
             "longitude": -85.6770
         },
-        "content_file": "ford_museum.txt"
+        "content_file": "ford_museum.txt",
+        "image": "ford_museum.jpg"
     },
     {
         "id": "097b6a6b-94ca-461d-9dd1-8628f697cf4d",
         "name": "John Ball Zoo",
+        "description": "A family-friendly zoo in Grand Rapids.",
         "location": {
             "latitude": 42.9679,
             "longitude": -85.6848
         },
-        "content_file": "john_ball_zoo.txt"
+        "content_file": "john_ball_zoo.txt",
+        "image": "john_ball_zoo.jpg"
     },
     {
         "id": "598c8c1b-b053-4b3a-b90c-774fe0b4ecb8",
         "name": "Downtown Market Grand Rapids",
+        "description": "A bustling market offering local produce and goods.",
         "location": {
             "latitude": 42.9573,
             "longitude": -85.6725
         },
-        "content_file": "downtown_market.txt"
+        "content_file": "downtown_market.txt",
+        "image": "downtown_market.jpg"
     },
     {
         "id": "a7eaf11a-2360-49f6-9ebd-46aa6c052e15",
         "name": "Grand Rapids Art Museum",
+        "description": "An art museum featuring a diverse collection of artworks.",
         "location": {
             "latitude": 42.9653,
             "longitude": -85.6714
         },
-        "content_file": "art_museum.txt"
+        "content_file": "art_museum.txt",
+        "image": "art_museum.jpg"
     },
     {
         "id": "1a2e4481-82d5-4ff7-a5dd-88696f33f24c",
         "name": "Fulton Street Farmers Market",
+        "description": "A popular farmers market with fresh produce and local products.",
         "location": {
             "latitude": 42.9660,
             "longitude": -85.6582
         },
-        "content_file": "farmers_market.txt"
+        "content_file": "farmers_market.txt",
+        "image": "farmers_market.jpg"
     },
     {
         "id": "4bb0fbdd-0b75-4d95-b5a5-56baf1f9ee82",
         "name": "Meyer May House",
+        "description": "A historic house designed by architect Frank Lloyd Wright.",
         "location": {
             "latitude": 42.9655,
             "longitude": -85.6633
         },
-        "content_file": "meyer_may_house.txt"
+        "content_file": "meyer_may_house.txt",
+        "image": "meyer_may_house.jpg"
     },
     {
         "id": "dd39ff51-7f38-4733-ae1b-58c0ce25606c",
         "name": "Blandford Nature Center",
+        "description": "A nature center with hiking trails and wildlife exhibits.",
         "location": {
             "latitude": 42.9833,
             "longitude": -85.7061
         },
-        "content_file": "blandford_nature_center.txt"
+        "content_file": "blandford_nature_center.txt",
+        "image": "blandford_nature_center.jpg"
     },
     {
         "id": "aad5f06f-b9b9-4e2e-a3b0-4a82de0da4f3",
         "name": "Van Andel Arena",
+        "description": "A multipurpose arena hosting sports and entertainment events.",
         "location": {
             "latitude": 42.9630,
             "longitude": -85.6712
         },
-        "content_file": "van_andel_arena.txt"
+        "content_file": "van_andel_arena.txt",
+        "image": "van_andel_arena.jpg"
     },
     {
         "id": "7a762ed5-8ab6-4a3a-81ea-64c69ed50bc9",
         "name": "Grand Rapids Public Museum",
+        "description": "A museum featuring exhibits on science, history, and culture.",
         "location": {
             "latitude": 42.9685,
             "longitude": -85.6763
         },
-        "content_file": "public_museum.txt"
+        "content_file": "public_museum.txt",
+        "image": "public_museum.jpg"
     },
     {
         "id": "d0cd50eb-e1e2-41ed-a39b-6556e7be365d",
         "name": "Grand Rapids Children's Museum",
+        "description": "A hands-on museum with interactive exhibits for children.",
         "location": {
             "latitude": 42.9662,
             "longitude": -85.6711
         },
-        "content_file": "childrens_museum.txt"
+        "content_file": "childrens_museum.txt",
+        "image": "childrens_museum.jpg"
     },
     {
         "id": "3872b6d8-1bb5-4e63-8325-e1d92e3b88e5",
         "name": "Fish Ladder Park",
+        "description": "A park featuring a fish ladder and scenic views.",
         "location": {
             "latitude": 42.9677,
             "longitude": -85.6661
         },
-        "content_file": "fish_ladder_park.txt"
+        "content_file": "fish_ladder_park.txt",
+        "image": "fish_ladder_park.jpg"
     },
     {
         "id": "e0f1426c-384f-47ea-a44d-9cb88f5d5275",
         "name": "Rosa Parks Circle",
+        "description": "A public park and ice skating rink in downtown Grand Rapids.",
         "location": {
             "latitude": 42.9636,
             "longitude": -85.6710
         },
-        "content_file": "rosa_parks_circle.txt"
+        "content_file": "rosa_parks_circle.txt",
+        "image": "rosa_parks_circle.jpg"
     },
     {
         "id": "2cfefb85-52e9-462c-913e-51a93230e5b3",
         "name": "Sculpture Park",
+        "description": "An outdoor park with a collection of sculptures.",
         "location": {
             "latitude": 42.9803,
             "longitude": -85.6691
         },
-        "content_file": "sculpture_park.txt"
+        "content_file": "sculpture_park.txt",
+        "image": "sculpture_park.jpg"
     },
     {
         "id": "17ed1ae5-4f9c-4989-912d-6b0dd3f2b87b",
         "name": "Heritage Hill Historic District",
+        "description": "A historic neighborhood with well-preserved architecture.",
         "location": {
             "latitude": 42.9603,
             "longitude": -85.6569
         },
-        "content_file": "heritage_hill.txt"
+        "content_file": "heritage_hill.txt",
+        "image": "heritage_hill.jpg"
     },
     {
         "id": "bb8f7e3b-79b1-4724-bf6e-20a60d3b2440",
         "name": "Belknap Lookout",
+        "description": "A scenic lookout with panoramic views of the city.",
         "location": {
             "latitude": 42.9814,
             "longitude": -85.6559
         },
-        "content_file": "belknap_lookout.txt"
+        "content_file": "belknap_lookout.txt",
+        "image": "belknap_lookout.jpg"
     },
     {
         "id": "c3e18639-7387-4a6f-8910-6e99e4a77db7",
         "name": "Ah-Nab-Awen Park",
+        "description": "A riverside park with green spaces and a large fountain.",
         "location": {
             "latitude": 42.9639,
             "longitude": -85.6697
         },
-        "content_file": "ah_nab_awen_park.txt"
+        "content_file": "ah_nab_awen_park.txt",
+        "image": "ah_nab_awen_park.jpg"
     },
     {
         "id": "b0178406-e30d-4ca7-9772-ee7c8b665f8a",
         "name": "Grand Rapids African American Museum and Archives",
+        "description": "A museum celebrating African American history and culture.",
         "location": {
             "latitude": 42.9571,
             "longitude": -85.6651
         },
-        "content_file": "african_american_museum.txt"
+        "content_file": "african_american_museum.txt",
+        "image": "african_american_museum.jpg"
     }
 ]
