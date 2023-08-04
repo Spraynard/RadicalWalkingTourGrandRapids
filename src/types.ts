@@ -14,7 +14,9 @@ type WalkingTourStop = {
     id : string,
     name : String,
     location : Location,
-    content_file : string
+    content_file : string,
+    description : string,
+    image : string
 }
 
 /**
