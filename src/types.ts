@@ -12,7 +12,7 @@ type Location = {
  */
 type WalkingTourStop = {
     id : string,
-    name : String,
+    name : string,
     location : Location,
     content_file : string,
     description : string,
@@ -26,7 +26,9 @@ type WalkingTourStop = {
 type RootStackParamList = {
     Main : undefined,
     Map : {
-        location : Location
+        marker_locations : Location[]
     },
-    Detail : undefined
+    Detail : {
+        walking_tour_stop : WalkingTourStop
+    }
 };
