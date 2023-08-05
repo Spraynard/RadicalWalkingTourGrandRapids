@@ -1,9 +1,9 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import React, { useState } from "react";
-import { Button, FlatList, Text, View, ListRenderItem, ListRenderItemInfo } from "react-native";
+import { FlatList, StyleSheet } from "react-native";
 import walking_tour_stops from "../../src/walking_tour_stops.json";
-import { SafeAreaView } from "react-native-safe-area-context";
 import WalkingTourStopItem from "../List/WalkingTourStopItem";
+import RadicalScreen from "../RadicalComponents/RadicalScreen";
 
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Main'>;
@@ -19,13 +19,26 @@ type Props = NativeStackScreenProps<RootStackParamList, 'Main'>;
 const MainScreen = ({ navigation } : Props) : React.ReactElement => {
     const [walkingTourStops] = useState<WalkingTourStop[]>(walking_tour_stops);
     return (
-        <SafeAreaView>
+        <RadicalScreen>
             <FlatList<WalkingTourStop> 
                 data={walkingTourStops}
-                renderItem={(info) => <WalkingTourStopItem {...info.item} />} 
-                keyExtractor={(item) => item.id}/>
-        </SafeAreaView>
+                renderItem={(info) => (
+                    <WalkingTourStopItem 
+                        walking_tour_stop={info.item}
+                        onPress={() => navigation.navigate("Detail", {
+                            walking_tour_stop : info.item
+                        })}/>
+                )}
+                keyExtractor={(item) => item.id}
+                style={styles.list}/>
+        </RadicalScreen>
     );
 }
 
+const styles = StyleSheet.create({
+    list : {
+        paddingLeft: 15,
+        paddingRight: 15
+    }
+})
 export default MainScreen;
