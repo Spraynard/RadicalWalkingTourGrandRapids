@@ -8,66 +8,44 @@
 import React, { createContext, useState } from 'react';
 import type { PropsWithChildren } from 'react';
 import {
-  SafeAreaView,
+  Button,
   StyleSheet,
-  Text,
-  useColorScheme,
-  View,
 } from 'react-native';
 
-import {
-  Colors,
-} from 'react-native/Libraries/NewAppScreen';
-
 import MainScreen from './src/Screens/MainScreen';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NativeStackNavigationProp, createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import MapScreen from './src/Screens/MapScreen';
-
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({ children, title }: SectionProps): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
+import DetailScreen from './src/Screens/DetailScreen';
+import walking_tour_stops from "./src/walking_tour_stops.json";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function App(): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
+  const marker_locations : Location[] = walking_tour_stops.map(( item : WalkingTourStop) => {
+    return item.location;
+  });
   return (
     <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator initialRouteName='Main'>
+          <Stack.Screen
+            name="Detail"
+            component={DetailScreen}
+            // THis shows name of the stop on the bar
+            options={({route}) => ({
+              title : route.params.walking_tour_stop.name
+            })}
+          />
           <Stack.Screen
             name="Main"
             component={MainScreen}
+            options={({navigation} : { navigation : NativeStackNavigationProp<RootStackParamList, "Map"> }) => ({
+              headerRight : () => (
+                <Button title="Map View" onPress={() => navigation.navigate("Map", {
+                  marker_locations
+                })} />
+              )
+            })}
           />
           <Stack.Screen
             name="Map"
