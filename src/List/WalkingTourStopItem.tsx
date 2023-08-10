@@ -1,6 +1,6 @@
 import { StyleSheet, View, Text, Pressable, PressableProps } from "react-native";
 import RadicalImage from "../RadicalComponents/RadicalImage";
-import RadicalText from "../RadicalComponents/RadicalText";
+import {RadicalText, RadicalTextTitle} from "../RadicalComponents/RadicalText";
 
 
 type Props = PressableProps & {
@@ -19,7 +19,7 @@ const WalkingTourStopItem = ({walking_tour_stop, ...rest} : Props) => (
                 <RadicalImage style={styles.image}/>
             </View>
             <View>
-                <RadicalText>{walking_tour_stop.name}</RadicalText>
+                <RadicalTextTitle>{walking_tour_stop.name}</RadicalTextTitle>
                 <RadicalText>{walking_tour_stop.description}</RadicalText>
             </View>
         </Pressable>
@@ -28,10 +28,9 @@ const WalkingTourStopItem = ({walking_tour_stop, ...rest} : Props) => (
 
 const styles = StyleSheet.create({
     container : {
-        marginTop : 15,
-        padding : 10,
-        paddingTop: 40,
-        borderRadius: 10,
+    //     marginTop : 15,
+    //     paddingTop: 40,
+    //     borderRadius: 10,
     },
     image : {
         height : 100,
