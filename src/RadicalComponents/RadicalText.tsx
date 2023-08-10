@@ -1,20 +1,35 @@
 import { Text, StyleSheet, TextProps } from 'react-native';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 type Props = TextProps;
 
 /**
  * Base application text component
  */
-const RadicalText = (props : Props) => <Text 
+export const RadicalText = (props: Props) => <Text
     style={[
-        styles.main,
+        styles.normal,
         props.style
     ]}>{props.children}</Text>
 
+export const RadicalTextHeader = (props: Props) => <RadicalText
+    style={styles.header} {...props} />
+
+export const RadicalTextTitle = (props: Props) => <RadicalText
+    style={styles.title} {...props} />
+
+const fontSizeBase = 20;
 const styles = StyleSheet.create({
-    main : {
-        color : "#000"
+    normal: {
+        fontSize: fontSizeBase
+    },
+    title: {
+        fontSize: fontSizeBase * 1.5,
+        fontWeight: 'bold'
+    },
+    header: {
+        fontSize: fontSizeBase * 2,
+        marginTop: 10,
+        fontWeight: "bold"
     }
 })
-
-export default RadicalText;
