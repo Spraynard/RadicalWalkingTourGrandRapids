@@ -26,7 +26,7 @@ type WalkingTourStop = {
 type RootStackParamList = {
     Main : undefined,
     Map : {
-        marker_locations : Location[]
+        walking_tour_stops : WalkingTourStop[]
     },
     Detail : {
         walking_tour_stop : WalkingTourStop
