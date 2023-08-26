@@ -1,15 +1,9 @@
-import { useEffect, useState } from "react";
-import { Image, ImageProps, ImageRequireSource, ImageSourcePropType, ImageURISource, Platform } from "react-native"
-import RNFS from "react-native-fs";
-
+import { useState } from "react";
+import { Image, ImageProps, ImageSourcePropType, Platform } from "react-native"
+import constants from "../constants";
 type Props = Omit<ImageProps, 'source'> & {
     walking_tour_stop ?: WalkingTourStop
 }
-
-
-const default_image : ImageURISource = require("../static/images/default_image_not_found.jpg");
-const ANDROID_IMAGE_ASSET_BASE = "asset:/images/walking_tour_stops/";
-const IOS_IMAGE_ASSET_BASE = "";
 
 /**
  * Does a business logic abstraction of the base React Image component
@@ -17,13 +11,13 @@ const IOS_IMAGE_ASSET_BASE = "";
  * @returns {Image} Business level image component
  */
 const RadicalImage = ({ walking_tour_stop, ...rest }: Props): React.ReactElement => {
-    const image_base = Platform.OS === "android" ?  ANDROID_IMAGE_ASSET_BASE : IOS_IMAGE_ASSET_BASE;
-    const [imageSource, setImageSource] = useState<ImageSourcePropType>(walking_tour_stop ? ({uri : image_base + walking_tour_stop.image}) : default_image);
+    const image_base = Platform.OS === "android" ?  constants.ANDROID_IMAGE_ASSET_BASE : constants.IOS_IMAGE_ASSET_BASE;
+    const [imageSource, setImageSource] = useState<ImageSourcePropType>(walking_tour_stop ? ({uri : image_base + walking_tour_stop.image}) : constants.DEFAULT_IMAGE);
     return (
         <Image source={imageSource}
             onError={(e) => {
                 console.error(e.nativeEvent.error);
-                setImageSource(default_image)
+                setImageSource(constants.DEFAULT_IMAGE)
             }}
             {...rest} />
     )
