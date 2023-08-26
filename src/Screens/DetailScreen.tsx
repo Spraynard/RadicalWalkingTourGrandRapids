@@ -1,11 +1,9 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import React, { useEffect, useRef, useState } from "react";
-import { FlatList, ScrollView, StyleSheet, Text, View } from "react-native";
-import walking_tour_stops from "../walking_tour_stops";
-import WalkingTourStopItem from "../List/WalkingTourStopItem";
+import React, { useEffect, useState } from "react";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 import RadicalScreen from "../RadicalComponents/RadicalScreen";
 import { RadicalText, RadicalTextHeader } from "../RadicalComponents/RadicalText";
-import MapView, { MapMarker, MapMarkerProps } from "react-native-maps";
+import MapView, { MapMarker } from "react-native-maps";
 import RadicalImage from "../RadicalComponents/RadicalImage";
 import RNFS from "react-native-fs";
 
@@ -17,13 +15,12 @@ type Props = NativeStackScreenProps<RootStackParamList, 'Detail'>;
  * @param route React Native Route
  * @returns Detail Screen React Component
  */
-
 const DetailScreen = ({ route }: Props): React.ReactElement => {
     const { walking_tour_stop } = route.params;
     const [walkingTourContent, setWalkingTourContent] = useState("");
     const zoom_level = 13; // This seems to be the sweet spot for oom levels on Android at least
-    
-    // Here we want to get items in the file system that are for this content
+
+    // Initial load only effect. Obtains the content for the walking tour stop from our files stored in the application.
     useEffect(() => {
         RNFS.readFileAssets("content_files/" + walking_tour_stop.content_file)
             .then(result => setWalkingTourContent(result))
@@ -41,7 +38,7 @@ const DetailScreen = ({ route }: Props): React.ReactElement => {
                         latitudeDelta: 0.0922,
                         longitudeDelta: 0.0421,
                     }}
-                    scrollEnabled={false} // Want to center on the specific place
+                    scrollEnabled={false}
                     zoomEnabled={false}
                     minZoomLevel={zoom_level}
                 >
@@ -53,11 +50,15 @@ const DetailScreen = ({ route }: Props): React.ReactElement => {
                         title={walking_tour_stop.name} />
                 </MapView>
                 <View style={styles.imageWrapper} >
-                    <RadicalImage style={styles.image} />
+                    <RadicalImage
+                        style={styles.image}
+                        walking_tour_stop={walking_tour_stop} />
                 </View>
-                <RadicalTextHeader>{walking_tour_stop.name}</RadicalTextHeader>
-                <RadicalText>{walking_tour_stop.description}</RadicalText>
-                <RadicalText>{walkingTourContent}</RadicalText>
+                <View style={styles.contentContainer}>
+                    <RadicalTextHeader>{walking_tour_stop.name}</RadicalTextHeader>
+                    <RadicalText style={styles.contentDescription}>{walking_tour_stop.description}</RadicalText>
+                    <RadicalText style={styles.content}>{walkingTourContent}</RadicalText>
+                </View>
             </ScrollView>
         </RadicalScreen>
     );
@@ -87,6 +88,15 @@ const styles = StyleSheet.create({
         height: 300,
         marginBottom: 20,
         marginTop: 40,
+    },
+    contentContainer: {
+        padding: 25
+    },
+    content: {
+        marginTop: 25
+    },
+    contentDescription: {
+        fontStyle: "italic"
     }
 })
 
