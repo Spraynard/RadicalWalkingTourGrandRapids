@@ -1,24 +1,32 @@
-import { View, Image, ImageSourcePropType, StyleSheet, StyleSheetProperties } from "react-native"
+import { useEffect, useState } from "react";
+import { Image, ImageProps, ImageRequireSource, ImageSourcePropType, ImageURISource, Platform } from "react-native"
+import RNFS from "react-native-fs";
 
-type Props = Omit<React.ComponentProps<typeof Image>, 'source'> & {
-    source ?: string
+type Props = Omit<ImageProps, 'source'> & {
+    walking_tour_stop ?: WalkingTourStop
 }
+
+
+const default_image : ImageURISource = require("../static/images/default_image_not_found.jpg");
+const ANDROID_IMAGE_ASSET_BASE = "asset:/images/walking_tour_stops/";
+const IOS_IMAGE_ASSET_BASE = "";
 
 /**
  * Does a business logic abstraction of the base React Image component
  * and provides a default image no matter where it is used 
  * @returns {Image} Business level image component
  */
-const RadicalImage = ({ source, ...rest }: Props): React.ReactElement => {
+const RadicalImage = ({ walking_tour_stop, ...rest }: Props): React.ReactElement => {
+    const image_base = Platform.OS === "android" ?  ANDROID_IMAGE_ASSET_BASE : IOS_IMAGE_ASSET_BASE;
+    const [imageSource, setImageSource] = useState<ImageSourcePropType>(walking_tour_stop ? ({uri : image_base + walking_tour_stop.image}) : default_image);
     return (
-        <Image
-            source={
-                source ? 
-                    source
-                    :
-                    require("../static/images/calder_plaza_and_la_grand_vitesse.jpg")
-            }
-            {...rest} />)
+        <Image source={imageSource}
+            onError={(e) => {
+                console.error(e.nativeEvent.error);
+                setImageSource(default_image)
+            }}
+            {...rest} />
+    )
 }
 
 export default RadicalImage;
