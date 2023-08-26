@@ -1,12 +1,13 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FlatList, ScrollView, StyleSheet, Text, View } from "react-native";
-import walking_tour_stops from "../../src/walking_tour_stops.json";
+import walking_tour_stops from "../walking_tour_stops";
 import WalkingTourStopItem from "../List/WalkingTourStopItem";
 import RadicalScreen from "../RadicalComponents/RadicalScreen";
 import { RadicalText, RadicalTextHeader } from "../RadicalComponents/RadicalText";
 import MapView, { MapMarker, MapMarkerProps } from "react-native-maps";
 import RadicalImage from "../RadicalComponents/RadicalImage";
+import RNFS from "react-native-fs";
 
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Detail'>;
@@ -18,11 +19,16 @@ type Props = NativeStackScreenProps<RootStackParamList, 'Detail'>;
  */
 
 const DetailScreen = ({ route }: Props): React.ReactElement => {
-    const {
-        walking_tour_stop
-    } = route.params;
-    const marker_ref = useRef<MapMarker>(null);
+    const { walking_tour_stop } = route.params;
+    const [walkingTourContent, setWalkingTourContent] = useState("");
     const zoom_level = 13; // This seems to be the sweet spot for oom levels on Android at least
+    
+    // Here we want to get items in the file system that are for this content
+    useEffect(() => {
+        RNFS.readFileAssets("content_files/" + walking_tour_stop.content_file)
+            .then(result => setWalkingTourContent(result))
+            .catch(error => setWalkingTourContent("Whoops something went wrong!"))
+    }, [])
 
     return (
         <RadicalScreen>
@@ -51,6 +57,7 @@ const DetailScreen = ({ route }: Props): React.ReactElement => {
                 </View>
                 <RadicalTextHeader>{walking_tour_stop.name}</RadicalTextHeader>
                 <RadicalText>{walking_tour_stop.description}</RadicalText>
+                <RadicalText>{walkingTourContent}</RadicalText>
             </ScrollView>
         </RadicalScreen>
     );
