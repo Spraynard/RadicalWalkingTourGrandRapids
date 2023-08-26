@@ -1,7 +1,7 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import React, { useState } from "react";
 import { FlatList, StyleSheet } from "react-native";
-import walking_tour_stops from "../../src/walking_tour_stops.json";
+import walking_tour_stops from "../walking_tour_stops";
 import WalkingTourStopItem from "../List/WalkingTourStopItem";
 import RadicalScreen from "../RadicalComponents/RadicalScreen";
 import { useTheme } from "@react-navigation/native";
