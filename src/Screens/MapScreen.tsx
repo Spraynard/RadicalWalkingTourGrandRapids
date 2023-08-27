@@ -1,7 +1,8 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
-import { StyleSheet } from "react-native";
-import MapView from "react-native-maps";
+import { Button, StyleSheet, Text, View } from "react-native";
+import MapView, { Callout, MapMarker, Marker } from "react-native-maps";
 import RadicalMapMarker from "../RadicalComponents/RadicalMapMarker";
+import Colors from "../colors";
 type Props = NativeStackScreenProps<RootStackParamList, 'Map'>;
 
 const Styles = StyleSheet.create({
@@ -34,12 +35,38 @@ const MapScreen = ({ route, navigation }: Props): React.ReactElement => {
                 longitudeDelta: 0.0421,
             }}>
             {walking_tour_stops.map((walking_tour_stop, index) => {
-                return <RadicalMapMarker 
-                            key={index + 1} 
-                            walking_tour_stop={walking_tour_stop} />
+                return <Marker 
+                            key={index + 1}
+                            coordinate={walking_tour_stop.location}
+                            description={walking_tour_stop.description}
+                            title={walking_tour_stop.name} >
+                                <Callout onPress={() => {navigation.navigate("Detail", { walking_tour_stop })}}>
+                                    <View style={styles.container}>
+                                    <Text style={[styles.title, styles.text]}>{walking_tour_stop.name}</Text>
+                                    <Text style={[styles.description, styles.text]}>{walking_tour_stop.description}</Text>
+                                    <Button title="Details"/>
+                                    </View>
+                                </Callout>
+                        </Marker>
             })}
         </MapView>
     )
 }
+
+const styles = StyleSheet.create({
+    text : {
+        color: Colors.light.card,
+        marginBottom: 10
+    },
+    container : {
+        padding: 15
+    },
+    title : {
+        fontWeight: "bold"
+    },
+    description: {
+        fontStyle: "italic"
+    }
+})
 
 export default MapScreen;
